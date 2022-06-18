@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+  my-app:
+    build: 
+       context: .
+       dockerfile: Dockerfile
+    container_name: app
+    env_file: .env
+    ports:
+      - 3000:3000
+
+  db:
+    image: mysql
+    container_name: db-app
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_DATABASE=gotodo
