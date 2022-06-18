@@ -1,0 +1,10 @@
+name=$1
+if (( $name == "docker" ))
+then
+	docker-compose up -d
+elif (( $name == "run-app" ))
+then
+	apt install golang -y; go mod tidy; go run main.go
+else
+	echo "chose docker or run-app"
+fi
